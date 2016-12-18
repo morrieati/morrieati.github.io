@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/use-iptables-to-retransmit-request-from-port-80/</loc>
+    <lastmod>2016-12-18T12:39:57.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用端口转发解决Node.js监听80端口权限问题</title>
+        <pubTime>2016-07-22T14:00:17.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/install-nginx-on-centos-7/</loc>
+    <lastmod>2016-12-18T12:39:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>在CentOS 7上安装nginx</title>
+        <pubTime>2016-07-22T13:03:05.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>CentOS</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/a-guide-for-absolute-new-programmers/</loc>
+    <lastmod>2016-12-18T12:38:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>程序员萌新入门指南</title>
+        <pubTime>2016-08-11T16:29:08.000Z</pubTime>
+        
+        <tag>Guide</tag>
+         
+        <tag>Basic knowledge</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/chromedriver-installation/</loc>
+    <lastmod>2016-12-18T12:38:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>chromedriver安装失败的解决方法</title>
+        <pubTime>2016-11-01T00:51:27.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/boot-cdn-is-very-good/</loc>
+    <lastmod>2016-12-18T12:38:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>BootCDN真是个好东西</title>
+        <pubTime>2016-11-05T08:29:01.000Z</pubTime>
+        
+        <tag>Blog</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/learn-web-socket-with-socket-io/</loc>
+    <lastmod>2016-12-18T12:37:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>Node.js WebSocket学习：基于Socket.io</title>
+        <pubTime>2016-07-18T09:58:29.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>WebSocket</tag>
+         
+        <tag>Socket.io</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/working-on-new-app-of-hustmsc-in-react-native/</loc>
+    <lastmod>2016-12-18T12:37:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>开始用React Native写俱乐部的手机APP啦</title>
+        <pubTime>2016-10-31T16:32:37.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>React Native</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/working-on-launch-page-of-hustmsc-app/</loc>
+    <lastmod>2016-12-18T12:37:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>俱乐部APP启动页面</title>
+        <pubTime>2016-11-17T13:20:33.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>React Native</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/hacking-teachermate-v1/</loc>
+    <lastmod>2016-12-18T12:37:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>新版微助教Hack指南😂</title>
+        <pubTime>2016-12-15T02:28:01.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+        <tag>Hack</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/hacking-teachermate-with-nodejs/</loc>
+    <lastmod>2016-12-18T12:36:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>用Node.js实现微助教自动签到</title>
+        <pubTime>2016-12-14T04:05:34.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+        <tag>Hack</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/react-native-navigation-in-hustmsc-app/</loc>
+    <lastmod>2016-12-18T12:36:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>俱乐部APP的页面跳转——React Native的Navigation</title>
+        <pubTime>2016-11-05T15:37:25.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>React Native</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/json-web-token-in-node-js/</loc>
+    <lastmod>2016-12-18T12:34:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>JSON Web Token in Node.js</title>
+        <pubTime>2016-08-04T13:10:02.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>JSON Web Token</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/first-day-in-mean-stack/</loc>
+    <lastmod>2016-12-18T12:34:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>MEAN Stack 学习第一天</title>
+        <pubTime>2016-07-17T13:38:33.000Z</pubTime>
+        
+        <tag>Node.js</tag>
+         
+        <tag>MEAN</tag>
+         
+        <tag>JavaScript</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://morrisblog.xyz/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/</loc>
+    <lastmod>2016-12-18T12:34:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>Fedora系统更新之后无法进入图形界面的可能的解决方法</title>
+        <pubTime>2016-12-18T11:52:42.000Z</pubTime>
+        
+        <tag>Fedora</tag>
+         
+        <tag>nVidia</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>

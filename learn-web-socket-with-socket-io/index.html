@@ -1,0 +1,1018 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Node.js,JavaScript,WebSocket,Socket.io," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="WebSocket&amp;#x7B80;&amp;#x5355;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;WebSocket &amp;#x662F;&amp;#x4ECE; HTML5 &amp;#x5F00;&amp;#x59CB;&amp;#x786E;&amp;#x5B9A;&amp;#x4E0B;&amp;#x6765;&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5230;&amp;#x670D;&amp;#x52A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js WebSocket学习：基于Socket.io">
+<meta property="og:url" content="http://morrisblog.xyz/learn-web-socket-with-socket-io/index.html">
+<meta property="og:site_name" content="morris.blog">
+<meta property="og:description" content="WebSocket&amp;#x7B80;&amp;#x5355;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;WebSocket &amp;#x662F;&amp;#x4ECE; HTML5 &amp;#x5F00;&amp;#x59CB;&amp;#x786E;&amp;#x5B9A;&amp;#x4E0B;&amp;#x6765;&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5230;&amp;#x670D;&amp;#x52A">
+<meta property="og:updated_time" content="2016-12-18T12:37:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js WebSocket学习：基于Socket.io">
+<meta name="twitter:description" content="WebSocket&amp;#x7B80;&amp;#x5355;&amp;#x6765;&amp;#x8BF4;&amp;#xFF0C;WebSocket &amp;#x662F;&amp;#x4ECE; HTML5 &amp;#x5F00;&amp;#x59CB;&amp;#x786E;&amp;#x5B9A;&amp;#x4E0B;&amp;#x6765;&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5230;&amp;#x670D;&amp;#x52A">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'B0YAA0MTTB',
+      apiKey: 'b53714203f481ffedd40a132826ec8d8',
+      indexName: 'morris_blog_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://morrisblog.xyz/learn-web-socket-with-socket-io/"/>
+
+
+
+
+
+  <title> Node.js WebSocket学习：基于Socket.io | morris.blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">morris.blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">to make the world a better place</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/learn-web-socket-with-socket-io/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="morris.liu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="morris.blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="morris.blog" src="/logo.png">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Node.js WebSocket学习：基于Socket.io
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-18T17:58:29+08:00">
+                2016-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/learn-web-socket-with-socket-io/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="learn-web-socket-with-socket-io/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;WebSocket &#x662F;&#x4ECE; HTML5 &#x5F00;&#x59CB;&#x786E;&#x5B9A;&#x4E0B;&#x6765;&#x7684;&#x652F;&#x6301;&#x6D4F;&#x89C8;&#x5668;&#x5230;&#x670D;&#x52A1;&#x5668;&#x957F;&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x79CD;&#x6280;&#x672F;&#x3002;&#x4EE5;&#x524D;&#x4EBA;&#x4EEC;&#x60F3;&#x505A;&#x8FD9;&#x79CD;&#x9700;&#x8981;&#x957F;&#x8FDE;&#x63A5;&#x5230;&#x5E94;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x57FA;&#x4E8E; Web &#x9875;&#x9762;&#x7684;&#x804A;&#x5929;&#x554A;&#x4E4B;&#x7C7B;&#xFF0C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x7528;&#x8F6E;&#x8BE2;&#x6280;&#x672F;&#x6216;&#x8005; Flash&#x3002;</p>
+<p>&#x4ECA;&#x5929;&#x65E9;&#x4E0A;&#x6211;&#x8003;&#x8651;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E5F;&#x662F;&#x60F3;&#x51FA;&#x6765;&#x7528;&#x8F6E;&#x8BE2;&#x7684;&#x65B9;&#x6CD5;&#x89E3;&#x51B3;&#x54AF;&#x3002;&#x4F46;&#x662F;&#x7528;&#x5C41;&#x80A1;&#x60F3;&#x4E5F;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x6837;&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x6D88;&#x8017;&#x592A;&#x5927;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#x6709;&#x65F6;&#x5019;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x5185;&#x5BB9;&#x5E76;&#x6CA1;&#x6709;&#x66F4;&#x65B0;&#xFF0C;&#x4F46;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x8FD8;&#x662F;&#x4F1A;&#x9694;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x53BB;&#x8BF7;&#x6C42;&#x4E00;&#x6B21;&#xFF0C;&#x8FD9;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x5F88;&#x591A;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x670D;&#x52A1;&#x5668;&#x8FD8;&#x8981;&#x53BB;&#x54CD;&#x5E94;&#x5B83;&#x3002;&#x3002;&#x3002;&#x6240;&#x4EE5;&#x603B;&#x800C;&#x8A00;&#x4E4B;&#x662F;&#x5F88;&#x6D6A;&#x8D39;&#x8D44;&#x6E90;&#x5566;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x540E;&#x6765;&#xFF0C;&#x6709;&#x4EBA;&#x548C;&#x6211;&#x8BF4;&#xFF0C;&#x554A;&#xFF0C;HTML5 &#x51FA;&#x6765;&#x4E4B;&#x540E;&#x5927;&#x5BB6;&#x4E00;&#x822C;&#x662F;&#x7528; WebSocket &#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x3002;&#x7136;&#x540E;&#x6211;&#x624D;&#x77E5;&#x9053;&#x539F;&#x6765;&#x662F;&#x81EA;&#x5DF1;&#x5B64;&#x964B;&#x5BE1;&#x95FB;&#x4E86;&#x1F604;&#x3002;&#x90A3;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5C31;&#x5F00;&#x59CB;&#x770B;&#x770B; WebSocket &#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x5230;&#x5E95;&#x662F;&#x4E2A;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#xFF01;</p>
+<a id="more"></a>
+<h2 id="WebSocket&#x8BF7;&#x6C42;"><a href="#WebSocket&#x8BF7;&#x6C42;" class="headerlink" title="WebSocket&#x8BF7;&#x6C42;"></a>WebSocket&#x8BF7;&#x6C42;</h2><p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x4E0B;&#x5B83;&#x7684; request &#x662F;&#x4EC0;&#x4E48;&#x6837;&#x5B50;&#x7684;&#x597D;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x636E;&#x8BF4;&#x662F;&#x4ECE; Wikipeida &#x4E0A;&#x627E;&#x7684;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// Wikipedia</div><div class="line">GET /chat HTTP/1.1</div><div class="line">Host: server.example.com</div><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==</div><div class="line">Sec-WebSocket-Protocol: chat, superchat</div><div class="line">Sec-WebSocket-Version: 13</div><div class="line">Origin: http://example.com</div></pre></td></tr></table></figure>
+<p>&#x5176;&#x5B9E;&#x8FD9;&#x6BB5; request &#x548C; HTTP &#x7684;&#x8FD8;&#x662F;&#x86EE;&#x50CF;&#x7684;&#xFF0C;&#x683C;&#x5F0F;&#x90FD;&#x4E00;&#x6837;&#xFF0C;&#x5C31;&#x662F;&#x591A;&#x4E86;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x9762;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x6211;&#x53D1;&#x8D77;&#x7684;&#x662F; WebSocket &#x8BF7;&#x6C42;&#x5566;&#xFF0C;&#x8981;&#x6C42;&#x90A3;&#x8FB9;&#x7528; WebSocket &#x76F8;&#x5173;&#x7684;&#x670D;&#x52A1;&#x6765;&#x54CD;&#x5E94;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x4E0B;&#x9762;&#x7684;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x91CC;&#x9762;&#xFF0C;<code>Protocol</code> &#x90A3;&#x4E2A;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x544A;&#x8BC9;&#x670D;&#x52A1;&#x5668;&#x90A3;&#x8FB9;&#x6211;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x8BA9;&#x5B83;&#x7528;&#x53EF;&#x4EE5;&#x7528;&#x7684;&#x6765;&#x5904;&#x7406;&#x3002;<code>Key</code> &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E2A; base64 &#x7F16;&#x7801;&#x7684;&#x4E32;&#xFF0C;&#x7528;&#x6765;&#x8981;&#x6C42;&#x670D;&#x52A1;&#x7AEF;&#x8FD4;&#x56DE;&#x5BF9;&#x5E94;&#x7684;&#x5E94;&#x7B54;&#x7684;&#xFF0C;&#x540E;&#x9762;&#x8BF4;&#x54CD;&#x5E94;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8BF4;&#x5230;&#x3002;<code>Version</code> &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6709;&#x4E9B;&#x5386;&#x53F2;&#x9057;&#x7559;&#x95EE;&#x9898;&#x4E86;&#xFF0C;&#x4EE5;&#x524D;&#x534F;&#x8BAE;&#x8FD8;&#x6CA1;&#x5B9A;&#x4E0B;&#x6765;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5927;&#x5BB6;&#x90FD;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#xFF0C;&#x5404;&#x79CD;&#x7248;&#x672C;&#x5F88;&#x4E71;&#xFF0C;&#x540E;&#x6765;&#x534F;&#x8BAE;&#x5B9A;&#x4E0B;&#x6765;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x8981;&#x6C42;&#x7EDF;&#x4E00;&#x7528; 13 &#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x73B0;&#x5728;&#x7684; WebSocket &#x8BF7;&#x6C42;&#x7684;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x5FC5;&#x987B;&#x662F; 13</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==</div><div class="line">Sec-WebSocket-Protocol: chat, superchat</div><div class="line">Sec-WebSocket-Version: 13</div></pre></td></tr></table></figure>
+<h2 id="WebSocket&#x54CD;&#x5E94;"><a href="#WebSocket&#x54CD;&#x5E94;" class="headerlink" title="WebSocket&#x54CD;&#x5E94;"></a>WebSocket&#x54CD;&#x5E94;</h2><p>&#x63A5;&#x6536;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8BF7;&#x6C42;&#x4E4B;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#xFF0C;&#x5C31;&#x662F;&#x4E0B;&#x9762;&#x7C7B;&#x4F3C;&#x7684;&#x8FD9;&#x79CD;&#x4E1C;&#x897F;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 101 Switching Protocols</div><div class="line">Upgrade: websocket</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Accept: HSmrc9sMlYUkAGmm50PpG2HaGWk=</div><div class="line">Sec-WebSocket-Protocol: chat</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x662F;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x5207;&#x6362;&#x534F;&#x8BAE;&#x5566;&#x3002;</p>
+<p><code>Upgrade</code> &#x548C; <code>Connection</code> &#x548C;&#x4E0A;&#x9762;&#x4E00;&#x6837;&#xFF0C;&#x7528;&#x6765;&#x786E;&#x5B9A;&#x6211;&#x4EEC;&#x7528;&#x7684;&#x534F;&#x8BAE;&#x662F; WebSocket &#x800C;&#x4E0D;&#x662F;&#x522B;&#x7684;&#x3002;&#x540E;&#x9762;&#x90A3;&#x4E2A; <code>Accept</code> &#x53C2;&#x6570;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x8BF4;&#x8FC7;&#x7684; <code>Key</code> &#x5BF9;&#x5E94;&#x7684;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x53CD;&#x6B63;&#x5C31;&#x662F;&#x628A; <code>Key</code> &#x7ECF;&#x8FC7;&#x5404;&#x79CD;&#x8FD0;&#x7B97;&#x7684;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x90A3;&#x8FB9;&#xFF0C;&#x544A;&#x8BC9;&#x4ED6;&#x670D;&#x52A1;&#x5668;&#x8FD9;&#x8FB9;&#x786E;&#x5B9E;&#x63A5;&#x53D7;&#x4E86;&#x8BF7;&#x6C42;&#x3002;&#x8981;&#x662F;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x8BDD;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x90A3;&#x8FB9;&#x5C31;&#x4F1A;&#x8BF4; &#x201C;Error during WebSocket handshake&#x201D; &#xFF0C;&#x7136;&#x540E;&#x5C31;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x4E86;&#x3002;</p>
+<p>&#x5B8C;&#x6210;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x4E4B;&#x540E;&#xFF0C;&#x63E1;&#x624B;&#x8FC7;&#x7A0B;&#x4E5F;&#x5C31;&#x6210;&#x529F;&#x5566;&#xFF0C;WebSocket &#x8FDE;&#x63A5;&#x5C31;&#x7B97;&#x6210;&#x529F;&#x5EFA;&#x7ACB;&#x8D77;&#x6765;&#x4E86;&#x3002;&#x4E0B;&#x9762;&#x5C31;&#x5F00;&#x59CB; Socket.io &#x5566;&#x3002;</p>
+<h1 id="Socket-io"><a href="#Socket-io" class="headerlink" title="Socket.io"></a>Socket.io</h1><p>Socket.io &#x628A; WebSocket &#x8FD9;&#x5957;&#x534F;&#x8BAE;&#x5F88;&#x597D;&#x7684;&#x5C01;&#x88C5;&#x8D77;&#x6765;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x7528;&#x81EA;&#x5DF1;&#x53BB;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x5B9E;&#x73B0;&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#x5566;&#xFF0C;&#x679C;&#x7136;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x5C31;&#x662F;&#x5389;&#x5BB3;&#x1F604;&#x3002;</p>
+<p>&#x8BF4;&#x5230; Web &#x957F;&#x94FE;&#x63A5;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x6700;&#x5178;&#x578B;&#x7684;&#x5C31;&#x662F;&#x804A;&#x5929;&#x5E94;&#x7528;&#x5566;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4ECA;&#x5929;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x804A;&#x5929;&#x5E94;&#x7528;&#x3002;</p>
+<h2 id="&#x642D;&#x5EFA;&#x57FA;&#x672C;&#x6846;&#x67B6;"><a href="#&#x642D;&#x5EFA;&#x57FA;&#x672C;&#x6846;&#x67B6;" class="headerlink" title="&#x642D;&#x5EFA;&#x57FA;&#x672C;&#x6846;&#x67B6;"></a>&#x642D;&#x5EFA;&#x57FA;&#x672C;&#x6846;&#x67B6;</h2><p>&#x6211;&#x4EEC;&#x7684;&#x804A;&#x5929;&#x5E94;&#x7528;&#x662F;&#x57FA;&#x4E8E; Node.js &#x7684;&#xFF0C;&#x7136;&#x540E;&#x4E3A;&#x4E86;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x4E9B;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x7528; <code>express-generator</code> &#x628A;&#x4E3B;&#x6846;&#x67B6;&#x642D;&#x8D77;&#x6765;&#x5566;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ express chatApp</div><div class="line">$ <span class="built_in">cd</span> chatApp</div><div class="line">$ npm install</div><div class="line">$ npm start</div></pre></td></tr></table></figure>
+<p>&#x55EF;&#x3002;&#x3002;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; Node.js &#x5E94;&#x7528;&#x5C31;&#x8FD9;&#x4E48;&#x642D;&#x597D;&#x4E86;&#x3002;&#x73B0;&#x5728;&#x8BBF;&#x95EE; <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> &#x5E94;&#x8BE5;&#x5C31;&#x6709;&#x53CD;&#x5E94;&#x5566;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x518D;&#x628A;&#x4ECA;&#x5929;&#x4E3B;&#x8981;&#x7528;&#x5230;&#x7684; <code>socket.io</code> &#x8FD9;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;&#x88C5;&#x597D;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install socket.io --save</div></pre></td></tr></table></figure>
+<p>&#x4E3B;&#x8981;&#x7684;&#x6846;&#x67B6;&#x5C31;&#x662F;&#x8FD9;&#x4E48;&#x591A;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x5F04;&#x754C;&#x9762;&#x4E86;&#x3002;</p>
+<h2 id="&#x804A;&#x5929;&#x7A97;&#x53E3;&#x754C;&#x9762;"><a href="#&#x804A;&#x5929;&#x7A97;&#x53E3;&#x754C;&#x9762;" class="headerlink" title="&#x804A;&#x5929;&#x7A97;&#x53E3;&#x754C;&#x9762;"></a>&#x804A;&#x5929;&#x7A97;&#x53E3;&#x754C;&#x9762;</h2><p>&#x804A;&#x5929;&#x7A97;&#x53E3;&#x754C;&#x9762;&#x6211;&#x5C31;&#x76F4;&#x63A5;&#x62FF; Socket.io &#x5B98;&#x7F51;&#x7684; Demo &#x5566;&#x1F604;&#xFF0C;&#x81EA;&#x5DF1;&#x5199;&#x597D;&#x9EBB;&#x70E6;&#xFF0C;&#x8981;&#x5199;&#x6F02;&#x4EAE;&#x4E9B;&#x8FD8;&#x8981;&#x7528; Bootstrap &#xFF0C;&#x57FA;&#x4E8E;&#x4E00;&#x5207;&#x4ECE;&#x7B80;&#x7684;&#x539F;&#x5219;&#x6240;&#x4EE5;&#x5C31;&#x76F4;&#x63A5;&#x62FF;&#x4E86;&#x5B98;&#x7F51; Demo&#x3002;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Socket.IO chat<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">      * { margin: 0; padding: 0; box-sizing: border-box; }</div><div class="line">      body { font: 13px Helvetica, Arial; }</div><div class="line">      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }</div><div class="line">      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }</div><div class="line">      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }</div><div class="line">      #messages { list-style-type: none; margin: 0; padding: 0; }</div><div class="line">      #messages li { padding: 5px 10px; }</div><div class="line">      #messages li:nth-child(odd) { background: #eee; }</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;messages&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;m&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">button</span>&gt;</span>Send<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x7ED9;&#x8868;&#x5355;&#x52A0;&#x4E0A; <code>submit</code> &#x4E8B;&#x4EF6;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">&apos;form&apos;</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">  socket.emit(<span class="string">&apos;chat message&apos;</span>, $(<span class="string">&apos;#m&apos;</span>).val());</div><div class="line">  $(<span class="string">&apos;#m&apos;</span>).val(<span class="string">&apos;&apos;</span>);</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">});</div></pre></td></tr></table></figure>
+<p>&#x518D;&#x7ED9;&#x804A;&#x5929;&#x754C;&#x9762;&#x52A0;&#x4E0A;&#x63A5;&#x53D7;&#x6765;&#x81EA;&#x670D;&#x52A1;&#x5668;&#x6D88;&#x606F;&#x7684;&#x529F;&#x80FD;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">socket.on(<span class="string">&apos;chat message&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>{</div><div class="line">  $(<span class="string">&apos;#messages&apos;</span>).append($(<span class="string">&apos;&lt;li&gt;&apos;</span>).text(msg));</div><div class="line">});</div></pre></td></tr></table></figure>
+<p>&#x6700;&#x540E;&#x7ED9;&#x804A;&#x5929;&#x754C;&#x9762;&#x52A0;&#x4E0A; Socket.io &#x7684;&#x652F;&#x6301;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> socket = io();</div></pre></td></tr></table></figure>
+<p>&#x6700;&#x540E;&#x6574;&#x5408;&#x8D77;&#x6765;&#x770B;&#x4E0A;&#x53BB;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Socket.IO chat<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">      * { margin: 0; padding: 0; box-sizing: border-box; }</div><div class="line">      body { font: 13px Helvetica, Arial; }</div><div class="line">      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }</div><div class="line">      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }</div><div class="line">      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }</div><div class="line">      #messages { list-style-type: none; margin: 0; padding: 0; }</div><div class="line">      #messages li { padding: 5px 10px; }</div><div class="line">      #messages li:nth-child(odd) { background: #eee; }</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;messages&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;m&quot;</span> <span class="attr">autocomplete</span>=<span class="string">&quot;off&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">button</span>&gt;</span>Send<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/socket.io/socket.io.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://code.jquery.com/jquery-1.11.1.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">      <span class="keyword">var</span> socket = io();</div><div class="line">      $(<span class="string">&apos;form&apos;</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">        socket.emit(<span class="string">&apos;chat message&apos;</span>, $(<span class="string">&apos;#m&apos;</span>).val());</div><div class="line">        $(<span class="string">&apos;#m&apos;</span>).val(<span class="string">&apos;&apos;</span>);</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      });</div><div class="line">      socket.on(<span class="string">&apos;chat message&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>{</div><div class="line">        $(<span class="string">&apos;#messages&apos;</span>).append($(<span class="string">&apos;&lt;li&gt;&apos;</span>).text(msg));</div><div class="line">      });</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x91CC;&#x9762;&#x6709;&#x5173; socket.io &#x7684;&#x90E8;&#x5206;&#x5C31;&#x662F;&#x7B2C; 27 &#x884C;&#x8FD8;&#x6709; 31 &#x884C;&#x5566;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">socket.emit(<span class="string">&apos;chat message&apos;</span>, $(<span class="string">&apos;#m&apos;</span>).val());</div><div class="line">socket.on(<span class="string">&apos;chat message&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>{ ... });</div></pre></td></tr></table></figure>
+<p>27 &#x884C;&#x8868;&#x793A;&#x7684;&#x662F;&#x628A;&#x804A;&#x5929;&#x8F93;&#x5165;&#x6846;&#x4E2D;&#x7684;&#x503C;&#x4EE5; &#x201C;chat message&#x201D; &#x8FD9;&#x4E2A;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x547D;&#x540D;&#x7684;&#x4E8B;&#x4EF6;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#xFF0C;&#x8FD9;&#x4E2A; &#x201C;chat message&#x201D; &#x5E76;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x7279;&#x6B8A;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x53EA;&#x662F;&#x7528;&#x6765;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684; socket.io &#x5904;&#x7406;&#x5339;&#x914D;&#x4E00;&#x4E0B;&#x7684;&#x3002;</p>
+<p>31 &#x884C;&#x8868;&#x793A;&#x7684;&#x662F;&#x5982;&#x679C;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5230; &#x201C;chat message&#x201D; &#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x5C31;&#x663E;&#x793A;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x804A;&#x5929;&#x754C;&#x9762;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x804A;&#x5929;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x4E14;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x6D88;&#x606F;&#x5566;&#xFF01;</p>
+<h2 id="&#x670D;&#x52A1;&#x5668;&#x7AEF;-Socket-io"><a href="#&#x670D;&#x52A1;&#x5668;&#x7AEF;-Socket-io" class="headerlink" title="&#x670D;&#x52A1;&#x5668;&#x7AEF; Socket.io"></a>&#x670D;&#x52A1;&#x5668;&#x7AEF; Socket.io</h2><p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;Socket.io &#x662F;&#x5206;&#x4E3A;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x5904;&#x7406; WebSocket &#x8BF7;&#x6C42;&#x7684;&#x4E00;&#x4E2A; Server &#x548C;&#x4E00;&#x4E2A;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684; <code>socket.io-client</code> &#xFF0C;&#x8FD9;&#x4E2A; Client &#x521A;&#x8FC7;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x7528;&#x8FC7;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; <code>socket.emit()</code> &#x90A3;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684; <code>socket.io</code> &#x3002;</p>
+<h3 id="&#x6DFB;&#x52A0;-Socket-io-&#x4E2D;&#x95F4;&#x4EF6;"><a href="#&#x6DFB;&#x52A0;-Socket-io-&#x4E2D;&#x95F4;&#x4EF6;" class="headerlink" title="&#x6DFB;&#x52A0; Socket.io &#x4E2D;&#x95F4;&#x4EF6;"></a>&#x6DFB;&#x52A0; Socket.io &#x4E2D;&#x95F4;&#x4EF6;</h3><p>&#x9996;&#x5148;&#x7684;&#x9996;&#x5148;&#xFF0C;&#x5728;&#x5199;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x5176;&#x4ED6;&#x529F;&#x80FD;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x628A; Socket.io &#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x52A0;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x5E94;&#x7528;&#x91CC;&#x9762;&#xFF0C;&#x8981;&#x4E0D;&#x7136;&#x6211;&#x4EEC;&#x5199;&#x4E86;&#x8FD9;&#x4E48;&#x591A;&#x51FD;&#x6570;&#x90FD;&#x6CA1;&#x6CD5;&#x7528;&#x554A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">&apos;socket.io&apos;</span>)(http);</div></pre></td></tr></table></figure>
+<h3 id="&#x7528;&#x6237;&#x8FDE;&#x63A5;"><a href="#&#x7528;&#x6237;&#x8FDE;&#x63A5;" class="headerlink" title="&#x7528;&#x6237;&#x8FDE;&#x63A5;"></a>&#x7528;&#x6237;&#x8FDE;&#x63A5;</h3><p>&#x7136;&#x540E;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x4EE5; WebSocket &#x534F;&#x8BAE;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x6709;&#x4E2A;&#x63D0;&#x9192;&#x8BF4;&#xFF0C;&#x554A;&#xFF0C;&#x6709;&#x4E2A;&#x7528;&#x6237;&#x767B;&#x5F55;&#x4E86;&#xFF01;&#x55EF;&#x3002;&#x3002;&#x7136;&#x540E;&#x5177;&#x4F53;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x5199;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">&apos;connection&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;a user connected&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E00;&#x53E5;&#x5C31;&#x662F;&#x76D1;&#x542C; connection &#x4E8B;&#x4EF6;&#xFF0C;&#x5F53;&#x6709;&#x7528;&#x6237;&#x8FDE;&#x63A5;&#x65F6;&#x5C31; log &#x4E0B;&#x6765;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x54A7;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x4E0B;&#x7EBF;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x60F3;&#x77E5;&#x9053;&#x4ED6;&#x4E0B;&#x7EBF;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5C31;&#x628A;&#x521A;&#x521A;&#x7684;&#x51FD;&#x6570;&#x6269;&#x5C55;&#x4E00;&#x4E0B;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">&apos;connection&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;a user connected&apos;</span>);</div><div class="line">  socket.on(<span class="string">&apos;disconnect&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;user disconnected&apos;</span>);</div><div class="line">  });</div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="&#x53D1;&#x9001;&#x804A;&#x5929;&#x6D88;&#x606F;"><a href="#&#x53D1;&#x9001;&#x804A;&#x5929;&#x6D88;&#x606F;" class="headerlink" title="&#x53D1;&#x9001;&#x804A;&#x5929;&#x6D88;&#x606F;"></a>&#x53D1;&#x9001;&#x804A;&#x5929;&#x6D88;&#x606F;</h3><p>&#x6700;&#x540E;&#xFF0C;&#x804A;&#x5929;&#x5E94;&#x7528;&#x6700;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#x5C31;&#x662F;&#x628A;&#x5927;&#x5BB6;&#x53D1;&#x7684;&#x6D88;&#x606F;&#x90FD;&#x663E;&#x793A;&#x5728;&#x804A;&#x5929;&#x7A97;&#x53E3;&#x4E0A;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;&#x4E0B;&#x9762;&#x8981;&#x5199;&#x670D;&#x52A1;&#x5668;&#x628A;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x529F;&#x80FD;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x7ECF;&#x8FC7;&#x6269;&#x5C55;&#x540E;&#x6211;&#x4EEC;&#x7684;&#x51FD;&#x6570;&#x770B;&#x8D77;&#x6765;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x4E86;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">io.on(<span class="string">&apos;connection&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;a user connected&apos;</span>);</div><div class="line">  socket.on(<span class="string">&apos;disconnect&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;user disconnected&apos;</span>);</div><div class="line">  });</div><div class="line">  socket.on(<span class="string">&apos;chat message&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;message: &apos;</span> + msg);</div><div class="line">    io.emit(<span class="string">&apos;chat message&apos;</span>, msg);</div><div class="line">  });</div><div class="line">});</div></pre></td></tr></table></figure>
+<p>&#x7B2C; 6~9 &#x884C;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x804A;&#x5929;&#x6D88;&#x606F;&#x7684;&#x51FD;&#x6570;&#x3002;&#x7B2C; 7 &#x884C;&#x662F;&#x628A;&#x6D88;&#x606F; log &#x5230;&#x7EC8;&#x7AEF;&#x4E0A;&#xFF0C;&#x7B2C; 8 &#x884C;&#x662F;&#x628A;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x5230;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x3002;</p>
+<p>&#x55EF;&#x3002;&#x3002;&#x770B;&#x8D77;&#x6765;&#x5DEE;&#x4E0D;&#x591A;&#x5C31;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x6837;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">&apos;express&apos;</span>)();</div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&apos;http&apos;</span>).Server(app);</div><div class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">&apos;socket.io&apos;</span>)(http);</div><div class="line"></div><div class="line">app.get(<span class="string">&apos;/&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{</div><div class="line">  res.sendFile(__dirname + <span class="string">&apos;/index.html&apos;</span>);</div><div class="line">});</div><div class="line"></div><div class="line">io.on(<span class="string">&apos;connection&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">&apos;a user connected&apos;</span>);</div><div class="line">	socket.on(<span class="string">&apos;disconnect&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">&apos;user disconnected&apos;</span>);</div><div class="line">	});</div><div class="line">	socket.on(<span class="string">&apos;chat message&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>{</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">&apos;message: &apos;</span> + msg);</div><div class="line">		io.emit(<span class="string">&apos;chat message&apos;</span>, msg);</div><div class="line">	})</div><div class="line">});</div><div class="line"></div><div class="line">http.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;listening on PORT&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
+<p>&#x4E0D;&#x8FC7;&#x8FD9;&#x662F;&#x7B80;&#x5316;&#x7248;&#x5566;&#xFF0C;<code>express-generator</code> &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5F88;&#x591A;&#x4EE3;&#x7801;&#x6211;&#x90FD;&#x6CA1;&#x5199;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x804A;&#x5929;&#x5E94;&#x7528;&#x57FA;&#x672C;&#x5C31;&#x5B8C;&#x6210;&#x5566;&#xFF0C;Demo &#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x70B9;&#x53F3;&#x8FB9;&#x4E09;&#x6761;&#x6A2A;&#x7EBF;&#x53BB;&#x627E;&#x6211;&#x7684; GitHub &#x4E0A;&#x9762;&#x4E0B;&#x8F7D;&#x3002;</p>
+<p>&#x5C31;&#x8FD9;&#x6837;&#x5566;&#x767D;&#x767D;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果你喜欢我的文章，就打赏一包辣条支持我继续创作叭！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/wechat.png" alt="morris.liu WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/alipay.png" alt="morris.liu Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Node-js/" rel="tag"># Node.js</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/WebSocket/" rel="tag"># WebSocket</a>
+          
+            <a href="/tags/Socket-io/" rel="tag"># Socket.io</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/first-day-in-mean-stack/" rel="next" title="MEAN Stack 学习第一天">
+                <i class="fa fa-chevron-left"></i> MEAN Stack 学习第一天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/install-nginx-on-centos-7/" rel="prev" title="在CentOS 7上安装nginx">
+                在CentOS 7上安装nginx <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="learn-web-socket-with-socket-io/"
+           data-title="Node.js WebSocket学习：基于Socket.io" data-url="http://morrisblog.xyz/learn-web-socket-with-socket-io/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar.png"
+               alt="morris.liu" />
+          <p class="site-author-name" itemprop="name">morris.liu</p>
+          <p class="site-description motion-element" itemprop="description">C# / Swift / JavaScript</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5239710746/" target="_blank" title="微博" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://cn.linkedin.com/in/义盟-刘-95a0229b/" target="_blank" title="领英" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-linkedin-square"></i>
+                  
+                  领英
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/morrieati/" target="_blank" title="推特" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  推特
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/morris.liu.923/" target="_blank" title="脸书" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-facebook-square"></i>
+                  
+                  脸书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/morrieati/" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tao-h.github.io/" title="黄涛的博客 | Greensleev" target="_blank" rel="external nofollow">黄涛的博客 | Greensleev</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://yuuuukiii.github.io/" title="YukiBlog" target="_blank" rel="external nofollow">YukiBlog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lyyhome.cn" title="LYY的个人博客" target="_blank" rel="external nofollow">LYY的个人博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://chendl.me/" title="大良的技术博客" target="_blank" rel="external nofollow">大良的技术博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocket"><span class="nav-number">1.</span> <span class="nav-text">WebSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket请求"><span class="nav-number">1.1.</span> <span class="nav-text">WebSocket请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket响应"><span class="nav-number">1.2.</span> <span class="nav-text">WebSocket响应</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Socket-io"><span class="nav-number">2.</span> <span class="nav-text">Socket.io</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建基本框架"><span class="nav-number">2.1.</span> <span class="nav-text">搭建基本框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聊天窗口界面"><span class="nav-number">2.2.</span> <span class="nav-text">聊天窗口界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端-Socket-io"><span class="nav-number">2.3.</span> <span class="nav-text">服务器端 Socket.io</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-Socket-io-中间件"><span class="nav-number">2.3.1.</span> <span class="nav-text">添加 Socket.io 中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户连接"><span class="nav-number">2.3.2.</span> <span class="nav-text">用户连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送聊天消息"><span class="nav-number">2.3.3.</span> <span class="nav-text">发送聊天消息</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">morris.liu</span>
+</div>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"morrieati"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+</body>
+</html>
