@@ -38,7 +38,7 @@ $(document).ready(function () {
       templates: {
         item: function (data) {
           return (
-            '<a href="' + CONFIG.root + data.path + '" class="algolia-hit-item-link">' +
+            '<a href="' + CONFIG.root + data.permalink + '" class="algolia-hit-item-link">' +
             data._highlightResult.title.value +
             '</a>'
           );
