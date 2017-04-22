@@ -122,7 +122,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
@@ -356,7 +356,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/json-web-token-in-node-js/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="json-web-token-in-node-js/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="json-web-token-in-node-js/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -478,9 +479,9 @@
           
             <a href="/tags/Node-js/" rel="tag"># Node.js</a>
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/JSON-Web-Token/" rel="tag"># JSON Web Token</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -531,8 +532,11 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="json-web-token-in-node-js/"
-           data-title="JSON Web Token in Node.js" data-url="http://morrisblog.xyz/json-web-token-in-node-js/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -857,37 +861,45 @@
 
   
 
+
   
+
     
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"morrieati"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
+      <script id="dsq-count-scr" src="https://morrisblog.disqus.com/count.js" async></script>
     
+
     
-    <script src="//cdn.bootcss.com/UAParser.js/0.7.9/ua-parser.min.js"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://morrisblog.xyz/json-web-token-in-node-js/';
+          this.page.identifier = 'json-web-token-in-node-js/';
+          this.page.title = 'JSON Web Token in Node.js';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://morrisblog.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
-
-
-
+  
 
 
 
