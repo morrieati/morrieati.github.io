@@ -355,9 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/" itemprop="commentCount"></span>
+                <a class="cloud-tie-join-count" href="/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -477,9 +476,9 @@
           
             <a href="/tags/Fedora/" rel="tag"># Fedora</a>
           
-            <a href="/tags/nVidia/" rel="tag"># nVidia</a>
-          
             <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/nVidia/" rel="tag"># nVidia</a>
           
         </div>
       
@@ -530,12 +529,7 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
   </div>
 
@@ -862,26 +856,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://morrisblog.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://morrisblog.xyz/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/';
-          this.page.identifier = 'how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/';
-          this.page.title = 'Fedora系统更新之后无法进入图形界面的可能的解决方法';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://morrisblog.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -892,12 +866,19 @@
 
 
   
-
-
-
-
-
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "440a5c5c24d4449ab19632b23d440f4b",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
   
+
+
 
 
 

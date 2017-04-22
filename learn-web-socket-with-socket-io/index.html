@@ -355,9 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/learn-web-socket-with-socket-io/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="learn-web-socket-with-socket-io/" itemprop="commentCount"></span>
+                <a class="cloud-tie-join-count" href="/learn-web-socket-with-socket-io/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -564,12 +563,7 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
   </div>
 
@@ -896,26 +890,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://morrisblog.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://morrisblog.xyz/learn-web-socket-with-socket-io/';
-          this.page.identifier = 'learn-web-socket-with-socket-io/';
-          this.page.title = 'Node.js WebSocket学习：基于Socket.io';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://morrisblog.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -926,12 +900,19 @@
 
 
   
-
-
-
-
-
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "440a5c5c24d4449ab19632b23d440f4b",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
   
+
+
 
 
 
