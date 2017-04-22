@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://morrisblog.xyz/how-to-install-mongodb-in-fedora-25-correctly/</loc>
+    
+    <lastmod>2016-12-21T06:23:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://morrisblog.xyz/use-iptables-to-retransmit-request-from-port-80/</loc>
     
     <lastmod>2016-12-18T12:39:57.000Z</lastmod>

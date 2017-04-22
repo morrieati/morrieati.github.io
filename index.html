@@ -13,8 +13,14 @@
 
 
 
+
+
+
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -71,7 +77,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Cool! Cooler!! Coolest!!!" />
@@ -83,7 +89,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
@@ -107,7 +113,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"hide"},
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -132,7 +138,7 @@
 
 
 
-  <title> morris.blog - C# / Swift / JavaScript </title>
+  <title>morris.blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,36 +154,44 @@
 
 
 
+
+
+
+
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-right 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta custom-logo">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">morris.blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">morris.blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">to make the world a better place</p>
+      
   </div>
-  <p class="site-subtitle">to make the world a better place</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -236,7 +250,7 @@
     <div class="site-search">
       
   
-  <div class="algolia-popup popup">
+  <div class="algolia-popup popup search-popup">
     <div class="algolia-search">
       <div class="algolia-search-input-icon">
         <i class="fa fa-search"></i>
@@ -283,20 +297,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/">
+    <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/how-to-install-mongodb-in-fedora-25-correctly/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="morris.liu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="morris.blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="morris.blog" src="/logo.png">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="morris.liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.png">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="morris.blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/how-to-install-mongodb-in-fedora-25-correctly/" itemprop="url">
+                  在Fedora 25上安装MongoDB
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-21T00:14:27+08:00">
+                2016-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/how-to-install-mongodb-in-fedora-25-correctly/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="how-to-install-mongodb-in-fedora-25-correctly/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>&#x4ECA;&#x5929;&#x4E3A;&#x4E86;&#x88C5;&#x4E2A; MongoDB &#x53EF;&#x771F;&#x662F;&#x5E9F;&#x4E86;&#x8001;&#x5927;&#x52B2;&#x513F;&#x4E86;&#xFF01;&#x4E3B;&#x8981;&#x662F;&#xFF01;&#x5B98;&#x7F51;&#x90A3;&#x4E2A;&#x7ED9; RHEL &#x5B89;&#x88C5;&#x7684;&#x6559;&#x7A0B;&#x5728;&#x6211; Fedora 25 &#x4E0A;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5375;&#x7528;&#xFF01;&#xFF01;&#xFF01;&#x4EC0;&#x4E48;&#x9B3C;&#x7684;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x54C7;&#xFF01;</p>
+<p>&#x7136;&#x540E;&#x54A7;&#xFF0C;&#x5305;&#x7BA1;&#x7406;&#x91CC;&#x9762;&#x4E5F;&#x6709;&#x4E2A;&#xFF0C;&#x7136;&#x540E;&#x54A7;&#xFF0C;&#x5E76;&#x4E0D;&#x80FD;&#x7528;&#xFF01;</p>
+<p>&#x771F;&#x662F;&#x4EE4;&#x4EBA;&#x5934;&#x5927;</p>
+<p>&#x5E78;&#x4E8F;&#x6700;&#x540E;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x5927;&#x795E;&#x5728; Fedora 24 &#x4E0A;&#x5B89;&#x88C5;&#x7684;&#x6559;&#x7A0B;&#xFF0C;&#x6700;&#x7EC8;&#x8FD8;&#x662F;&#x88C5;&#x597D;&#x4E86;&#x3002;<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/how-to-install-mongodb-in-fedora-25-correctly/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="morris.liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="morris.blog">
+    </span>
 
     
       <header class="post-header">
@@ -322,8 +470,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-18T19:52:42+08:00">
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-18T19:52:42+08:00">
                 2016-12-18
               </time>
             
@@ -339,6 +489,9 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/" itemprop="commentCount"></span>
                 </a>
@@ -347,8 +500,8 @@
           
 
           
-
           
+
           
 
           
@@ -358,7 +511,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -370,7 +522,7 @@
           <p>&#x4ECA;&#x5929;&#x4E0B;&#x5348;&#x8DD1;&#x4E86;&#x4E00;&#x4E0B; <code>dnf update</code> &#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x7684; Fedora &#x5C31;&#x5D29;&#x4E86;&#x3002;&#x4F9D;&#x7A00;&#x8BB0;&#x5F97;&#x662F;&#x66F4;&#x65B0;&#x4E86;&#x51E0;&#x4E2A; x &#x7684;&#x5305;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x8FDB;&#x4E0D;&#x53BB;&#x684C;&#x9762;&#x73AF;&#x5883;&#x4E86;&#x3002;</p>
 <p>&#x540E;&#x6765;&#x5728;&#x7F51;&#x4E0A;&#x627E;&#x4E86;&#x597D;&#x534A;&#x5929;&#x53D1;&#x73B0;&#x53EF;&#x80FD;&#x662F; nVidia &#x9A71;&#x52A8;&#x7684;&#x9505;&#xFF0C;&#x8BD5;&#x7740;&#x91CD;&#x88C5;&#x4E86;&#x4E00;&#x4E0B;&#x9A71;&#x52A8;&#x5C31;&#x6EE1;&#x8840;&#x590D;&#x6D3B;&#x1F44C;</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/how-to-start-gui-after-fedora-update-and-nvidia-drive-crash/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -388,8 +540,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -412,20 +569,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/hacking-teachermate-v1/">
+    <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/hacking-teachermate-v1/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="morris.liu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="morris.blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="morris.blog" src="/logo.png">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="morris.liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.png">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="morris.blog">
+    </span>
 
     
       <header class="post-header">
@@ -451,8 +605,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-15T10:28:01+08:00">
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-15T10:28:01+08:00">
                 2016-12-15
               </time>
             
@@ -468,6 +624,9 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/hacking-teachermate-v1/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="hacking-teachermate-v1/" itemprop="commentCount"></span>
                 </a>
@@ -476,8 +635,8 @@
           
 
           
-
           
+
           
 
           
@@ -487,7 +646,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -501,7 +659,7 @@
 <p>&#x5E78;&#x4E8F;&#x6211;&#x673A;&#x667A;&#x5730;&#x53CA;&#x65F6;&#x7528;&#x624B;&#x673A;&#x5FAE;&#x4FE1;&#x7B7E;&#x4E86;&#x5230;&#x1F44F;</p>
 <p>&#x7136;&#x540E;&#x7A0D;&#x5FAE;&#x6539;&#x4E86;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;&#x9002;&#x914D;&#x4E86;&#x65B0;&#x7248;&#x5FAE;&#x52A9;&#x6559;&#xFF5E;</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/hacking-teachermate-v1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -519,8 +677,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -543,20 +706,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/hacking-teachermate-with-nodejs/">
+    <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/hacking-teachermate-with-nodejs/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="morris.liu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="morris.blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="morris.blog" src="/logo.png">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="morris.liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.png">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="morris.blog">
+    </span>
 
     
       <header class="post-header">
@@ -582,8 +742,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T12:05:34+08:00">
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-14T12:05:34+08:00">
                 2016-12-14
               </time>
             
@@ -599,6 +761,9 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/hacking-teachermate-with-nodejs/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="hacking-teachermate-with-nodejs/" itemprop="commentCount"></span>
                 </a>
@@ -607,8 +772,8 @@
           
 
           
-
           
+
           
 
           
@@ -618,7 +783,6 @@
         </div>
       </header>
     
-
 
     <div class="post-body" itemprop="articleBody">
 
@@ -630,7 +794,7 @@
           <p>&#x8FD9;&#x5B66;&#x671F;&#x7EC4;&#x539F;&#x8BFE;&#x7528;&#x5FAE;&#x52A9;&#x6559;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x7B7E;&#x5230;&#x8BF6;&#xFF0C;&#x7136;&#x540E;&#x6628;&#x5929;&#x770B;&#x5230;&#x8036;&#x9C81;&#x5927;&#x795E; hack &#x4E86;&#x81EA;&#x52A8;&#x7B7E;&#x5230; <a href="https://tao-h.github.io/2016/12/13/teacher-mater/">&#x94FE;&#x63A5;&#x5728;&#x8FD9;&#x91CC;</a> &#x7136;&#x540E;&#x6211;&#x5C31;&#x60F3;&#x7740;&#x4E5F;&#x5F04;&#x4E2A;&#x6BCF;&#x6B21;&#x7B7E;&#x5230;&#x5C31;&#x53EF;&#x4EE5;&#x62A2;&#x7B2C;&#x4E00;&#x5566;&#x261D;&#xFE0F;&#x1F604;</p>
 <p>&#x7136;&#x540E;&#x770B;&#x4E86;&#x4E0B;&#x4ED6;&#x5199;&#x7684;&#x57FA;&#x672C;&#x5C31;&#x662F;&#x4ECE; Chrome &#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x91CC;&#x628A; cURL &#x811A;&#x672C;&#x590D;&#x5236;&#x4E0B;&#x6765;&#x7136;&#x540E;&#x4ECE; python &#x91CC;&#x9762;&#x5FAA;&#x73AF;&#x4E86;&#xFF0C;&#x65E2;&#x7136;&#x6211;&#x7528; node &#x5199;&#x80AF;&#x5B9A;&#x4E0D;&#x4F1A;&#x8FD9;&#x6837;&#x5566;&#xFF0C;&#x76F4;&#x63A5;&#x7528; node &#x7684; request &#x5C31;&#x597D;&#x4E86;&#xFF08;&#x867D;&#x7136;&#x76F4;&#x63A5;&#x590D;&#x5236;&#x8FC7;&#x6765;&#x633A;&#x65B9;&#x4FBF;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x5728; request &#x91CC;&#x9762;&#x5199;&#x770B;&#x7684;&#x6BD4;&#x8F83;&#x6E05;&#x695A;&#xFF09;</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/hacking-teachermate-with-nodejs/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -648,8 +812,13 @@
       
     </div>
 
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -672,20 +841,17 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/working-on-launch-page-of-hustmsc-app/">
+    <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/working-on-launch-page-of-hustmsc-app/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="morris.liu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="morris.blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="morris.blog" src="/logo.png">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="morris.liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.png">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="morris.blog">
+    </span>
 
     
       <header class="post-header">
@@ -711,8 +877,10 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-17T21:20:33+08:00">
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-17T21:20:33+08:00">
                 2016-11-17
               </time>
             
@@ -728,6 +896,9 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/working-on-launch-page-of-hustmsc-app/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count ds-thread-count" data-thread-key="working-on-launch-page-of-hustmsc-app/" itemprop="commentCount"></span>
                 </a>
@@ -736,8 +907,8 @@
           
 
           
-
           
+
           
 
           
@@ -748,7 +919,6 @@
       </header>
     
 
-
     <div class="post-body" itemprop="articleBody">
 
       
@@ -758,7 +928,7 @@
         
           <p>&#x4ECA;&#x5929;&#x5148;&#x628A;&#x4FF1;&#x4E50;&#x90E8; APP &#x7684;&#x542F;&#x52A8;&#x9875;&#x9762;&#x5199;&#x4E86;&#xFF0C;&#x5199;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x8FD8;&#x662F;&#x8E29;&#x4E86;&#x51E0;&#x4E2A;&#x5751;</p>
           <!--noindex-->
-          <div class="post-more-link text-center">
+          <div class="post-button text-center">
             <a class="btn" href="/working-on-launch-page-of-hustmsc-app/#more" rel="contents">
               阅读全文 &raquo;
             </a>
@@ -776,136 +946,13 @@
       
     </div>
 
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://morrisblog.xyz/react-native-navigation-in-hustmsc-app/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="morris.liu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="morris.blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="morris.blog" src="/logo.png">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/react-native-navigation-in-hustmsc-app/" itemprop="url">
-                  俱乐部APP的页面跳转——React Native的Navigation
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-05T23:37:25+08:00">
-                2016-11-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/react-native-navigation-in-hustmsc-app/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="react-native-navigation-in-hustmsc-app/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&#x524D;&#x9762;&#x628A;&#x4E00;&#x4E9B;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x5DF2;&#x7ECF;&#x505A;&#x597D;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x59CB;&#x5199;&#x9875;&#x9762;&#x8DEF;&#x7531;&#x548C;&#x5BFC;&#x822A;&#x5566;&#x3002;&#x4E0D;&#x8FC7;&#x5199;&#x4E4B;&#x524D;&#x8FD8;&#x662F;&#x8981;&#x7EA0;&#x7ED3;&#x4E00;&#x4E0B;&#x9009;&#x54EA;&#x4E2A;&#x6846;&#x67B6;&#x624D;&#x597D;&#x3002;&#x53EF;&#x662F; React Native &#x7684;&#x53EF;&#x4F9B;&#x9009;&#x62E9;&#x7684;&#x5BFC;&#x822A;&#x6846;&#x67B6;&#x8FD9;&#x4E48;&#x591A;&#xFF0C;&#x771F;&#x662F;&#x9009;&#x62E9;&#x56F0;&#x96BE;&#x75C7;&#x54C7;&#x1F602;&#xFF01;</p>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/react-native-navigation-in-hustmsc-app/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
     <div>
       
     </div>
 
-    <div>
-      
-    </div>
-
-
     <footer class="post-footer">
+      
+
       
 
       
@@ -959,22 +1006,29 @@
                src="/avatar.png"
                alt="morris.liu" />
           <p class="site-author-name" itemprop="name">morris.liu</p>
-          <p class="site-description motion-element" itemprop="description">C# / Swift / JavaScript</p>
+           
+              <p class="site-description motion-element" itemprop="description">C# / Swift / JavaScript</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
           
 
           
+
+          
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">16</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1074,6 +1128,8 @@
 
       
 
+      
+
     </div>
   </aside>
 
@@ -1086,8 +1142,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1110,30 +1166,38 @@
 </script>
 
         
-
 <div class="busuanzi-count">
-
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
   
 
   
-    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
   
 </div>
-
 
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -1153,6 +1217,15 @@
 
 
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1178,21 +1251,21 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
 
 
   
-  
-
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
 
 
 
@@ -1229,134 +1302,32 @@
 
 
 
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
 
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
 
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
 
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
 
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
+
 
 
   
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
 
   
 
@@ -1380,18 +1351,8 @@
   
 
   
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
 
   
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
 
 </body>
 </html>
