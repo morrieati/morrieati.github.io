@@ -39,13 +39,8 @@ $(document).ready(function () {
         item: function (data) {
           var link = data.permalink ? data.permalink : (CONFIG.root + data.path);
           return (
-<<<<<<< HEAD
-            '<a href="' + CONFIG.root + data.path + '" class="algolia-hit-item-link">' +
-            data._highlightResult.title.value +
-=======
             '<a href="' + link + '" class="algolia-hit-item-link">' +
               data._highlightResult.title.value +
->>>>>>> 3b64c7146ad1e0cd8b4a45140b42f7a0404b28d6
             '</a>'
           );
         },
@@ -104,15 +99,10 @@ $(document).ready(function () {
 
   $('.popup-trigger').on('click', function (e) {
     e.stopPropagation();
-<<<<<<< HEAD
-    $('body').append('<div class="popoverlay">').css('overflow', 'hidden');
-    $('.popup').show();
-=======
     $('body')
       .append('<div class="search-popup-overlay algolia-pop-overlay"></div>')
       .css('overflow', 'hidden');
     $('.popup').toggle();
->>>>>>> 3b64c7146ad1e0cd8b4a45140b42f7a0404b28d6
     $('#algolia-search-input').find('input').focus();
   });
 
