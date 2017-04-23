@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -117,7 +117,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -424,7 +424,7 @@
 <p>&#x7136;&#x540E;&#x8FD8;&#x8981;&#x641E;&#x4E2A;&#x5B89;&#x5353;&#x6A21;&#x62DF;&#x5668;&#xFF0C;&#x867D;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x624B;&#x673A;&#xFF0C;&#x4F46;&#x662F;&#x5FC5;&#x987B;&#x8981;&#x8FDE;&#x7EBF;&#xFF0C;&#x6240;&#x4EE5;&#x8FD8;&#x662F;&#x6A21;&#x62DF;&#x5668;&#x6BD4;&#x8F83;&#x65B9;&#x4FBF;&#x3002;&#x7136;&#x540E;&#x6A21;&#x62DF;&#x5668;&#x6211;&#x7528;&#x7684; Genymotion &#x4E2A;&#x4EBA;&#x7248;&#xFF0C;&#x8FD8;&#x4E0D;&#x9519;&#x3002;&#x53EA;&#x4E0D;&#x8FC7;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x628A; SDK &#x6539;&#x6210;&#x4F60; Android Studio &#x5B89;&#x88C5;&#x7684; SDK &#x7684;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x8981;&#x7528;&#x4ED6;&#x81EA;&#x5E26;&#x7684;&#x90A3;&#x4E2A;&#xFF0C;&#x7136;&#x540E;&#x865A;&#x62DF;&#x673A;&#x91CC;&#x9762;&#x8FDE;&#x4E0A;&#x90A3;&#x4E2A; WiFi &#xFF0C;&#x8FD9;&#x6837;&#x57FA;&#x672C;&#x5C31;&#x6CA1;&#x5565;&#x95EE;&#x9898;&#x4E86;</p>
 <h1 id="&#x5F00;&#x59CB;&#x7F16;&#x5199;"><a href="#&#x5F00;&#x59CB;&#x7F16;&#x5199;" class="headerlink" title="&#x5F00;&#x59CB;&#x7F16;&#x5199;"></a>&#x5F00;&#x59CB;&#x7F16;&#x5199;</h1><h2 id="&#x7B80;&#x5355;&#x7684;&#x51E0;&#x4E2A;-Demo"><a href="#&#x7B80;&#x5355;&#x7684;&#x51E0;&#x4E2A;-Demo" class="headerlink" title="&#x7B80;&#x5355;&#x7684;&#x51E0;&#x4E2A; Demo"></a>&#x7B80;&#x5355;&#x7684;&#x51E0;&#x4E2A; Demo</h2><p>&#x4E3A;&#x4E86;&#x4EE5;&#x540E;&#x4EE3;&#x7801;&#x7684;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x6211;&#x8FD8;&#x662F;&#x5148;&#x4ECE;&#x5B98;&#x65B9; Demo &#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x4E9B;&#x4FEE;&#x6539;&#xFF0C;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x5199;&#x4E86;&#x51E0;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x4ECE;&#x4E3B;&#x6A21;&#x5757; <code>index.android.js</code> &#x91CC;&#x9762;&#x8C03;&#x7528;&#x4E00;&#x4E0B;</p>
 <p>&#x4EE5;&#x4E0B;&#x662F;&#x6211;&#x81EA;&#x5DF1;&#x5199;&#x7684; <code>Picture</code> &#x6A21;&#x5757;&#xFF0C;&#x7B80;&#x5355;&#x7684;&#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x4E0B;&#x81EA;&#x5E26;&#x7684; <code>Image</code> &#x6A21;&#x5757;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, { Component } <span class="keyword">from</span> <span class="string">&apos;react&apos;</span>;</div><div class="line"><span class="keyword">import</span> {</div><div class="line">    StyleSheet,</div><div class="line">    Image</div><div class="line">} <span class="keyword">from</span> <span class="string">&apos;react-native&apos;</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Picture</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</div><div class="line">    render() {</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">Image</span> <span class="attr">source</span>=<span class="string">{this.props.src}</span> <span class="attr">style</span>=<span class="string">{styles.images}</span> /&gt;</span></span></div><div class="line">        );</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">const styles = StyleSheet.create({</div><div class="line">    images: {</div><div class="line">        width: 193,</div><div class="line">        height: 110,</div><div class="line">    },</div><div class="line">});</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, { Component } <span class="keyword">from</span> <span class="string">&apos;react&apos;</span>;</div><div class="line"><span class="keyword">import</span> {</div><div class="line">    StyleSheet,</div><div class="line">    Image</div><div class="line">} <span class="keyword">from</span> <span class="string">&apos;react-native&apos;</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Picture</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>{</div><div class="line">    render() {</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;Image source={this.props.src} style={styles.images} /&gt;</div><div class="line">        );</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">const styles = StyleSheet.create({</div><div class="line">    images: {</div><div class="line">        width: 193,</div><div class="line">        height: 110,</div><div class="line">    },</div><div class="line">});</div></pre></td></tr></table></figure>
 <p>&#x7136;&#x540E;&#x4ECE; <code>index.android.js</code> &#x91CC;&#x9762;&#x5F15;&#x7528;&#x8981;&#x8FD9;&#x6837;&#x5199;</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Picture <span class="keyword">from</span> <span class="string">&apos;./custom_modules/Picture&apos;</span></div></pre></td></tr></table></figure>
 <p>&#x55EF;&#xFF0C;&#x8FD9;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5757;&#x662F;&#x653E;&#x5728; <code>./custom_modules</code> &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x7684;</p>
@@ -822,10 +822,9 @@
 
 
 
-  
-  
 
 
+  
 
 
 
@@ -848,10 +847,7 @@
   <script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
   
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  <script type="text/javascript" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
 
 
   
@@ -865,6 +861,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
