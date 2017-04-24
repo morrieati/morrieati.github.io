@@ -64,11 +64,11 @@
         <title>MEAN Stack 学习第一天</title>
         <pubTime>2016-07-15T01:16:45.000Z</pubTime>
         
+        <tag>MEAN</tag>
+         
         <tag>Node.js</tag>
          
         <tag>JavaScript</tag>
-         
-        <tag>MEAN</tag>
          
          
            
@@ -123,11 +123,11 @@
         <title>Fedora系统更新之后无法进入图形界面的可能的解决方法</title>
         <pubTime>2016-12-18T06:20:07.000Z</pubTime>
         
+        <tag>Linux</tag>
+         
         <tag>Fedora</tag>
          
         <tag>nVidia</tag>
-         
-        <tag>Linux</tag>
          
          
            
@@ -209,9 +209,9 @@
         <title>俱乐部APP的页面跳转——React Native的Navigation</title>
         <pubTime>2016-11-03T04:10:30.000Z</pubTime>
         
-        <tag>React Native</tag>
-         
         <tag>JavaScript</tag>
+         
+        <tag>React Native</tag>
          
          
            
@@ -247,9 +247,9 @@
         <title>俱乐部APP启动页面</title>
         <pubTime>2016-11-02T04:10:30.000Z</pubTime>
         
-        <tag>React Native</tag>
-         
         <tag>JavaScript</tag>
+         
+        <tag>React Native</tag>
          
          
            
@@ -266,25 +266,10 @@
         <title>开始用React Native写俱乐部的手机APP啦</title>
         <pubTime>2016-11-01T04:10:30.000Z</pubTime>
         
-        <tag>React Native</tag>
-         
         <tag>JavaScript</tag>
          
+        <tag>React Native</tag>
          
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://morrisblog.xyz/change-grub-theme/</loc>
-    <lastmod>2017-04-22T14:19:27.311Z</lastmod>
-    <data>
-        <display>
-        <title>change-grub-theme</title>
-        <pubTime>2016-12-24T07:40:50.000Z</pubTime>
-        
          
            
         </display>
@@ -300,9 +285,9 @@
         <title>在Fedora 25上安装MongoDB</title>
         <pubTime>2016-12-20T16:14:27.000Z</pubTime>
         
-        <tag>Fedora</tag>
-         
         <tag>MongoDB</tag>
+         
+        <tag>Fedora</tag>
          
          
            
