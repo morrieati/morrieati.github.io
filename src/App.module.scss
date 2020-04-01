@@ -1,0 +1,40 @@
+@import "src/common";
+
+.Blog {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  .Footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 44px;
+    border-top: $border;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .SiteName {
+      padding-right: 20px;
+      border-right: $divider;
+    }
+
+    .ArticleTitle {
+      padding-left: 20px;
+      flex-grow: 1;
+    }
+
+    .Links {
+      padding-left: 10px;
+      border-left: $divider;
+
+      .Link {
+        margin-left: 10px;
+      }
+    }
+  }
+}
