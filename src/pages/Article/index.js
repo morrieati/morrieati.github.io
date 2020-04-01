@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router'
 import { Helmet } from 'react-helmet'
 import PubSub from 'pubsub-js'
+import qs from 'query-string'
 
 import { Remarkable } from 'remarkable'
 import { linkify } from 'remarkable/linkify'
@@ -12,7 +12,7 @@ import toc from 'markdown-toc'
 import styles from './Article.module.scss'
 
 const Article = () => {
-  const { name } = useParams()
+  const { article } = qs.parse(window.location.search)
 
   const [content, setContent] = useState('')
   const [metadata, setMetadata] = useState({})
@@ -20,7 +20,8 @@ const Article = () => {
 
   useEffect(() => {
     async function fetchData () {
-      const result = await fetch(`/markdown/${name}.md`)
+      const prefix = 'https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/master/markdown/'
+      const result = await fetch(`${prefix}${article}.md`)
       return await result.text()
     }
 
@@ -53,7 +54,7 @@ const Article = () => {
       setMetadata(md.meta)
       setToc(toc(text, {}).json)
     })
-  }, [name])
+  }, [article])
 
   return (
     <div className={styles.Article}>

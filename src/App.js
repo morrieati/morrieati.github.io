@@ -21,13 +21,13 @@ const App = () => {
         <Route exact path={'/'}>
           <Home />
         </Route>
-        <Route path={'/me'}>
+        <Route exact path={'/me'}>
           <Me />
         </Route>
-        <Route path={'/article/:name'}>
+        <Route exact path={'/page'}>
           <Article />
         </Route>
-        <Route>
+        <Route exact path={'/404'}>
           <NoMatch />
         </Route>
       </Switch>
