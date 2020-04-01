@@ -5,6 +5,13 @@
   height: 100%;
   margin: 20px 152px;
 
+  .Loading {
+    @include position-center;
+
+    font-size: 32px;
+    font-weight: lighter;
+  }
+
   .Content {
     position: relative;
     width: 80%;

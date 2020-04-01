@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import PubSub from 'pubsub-js'
 import qs from 'query-string'
+import axios from 'axios'
 
 import { Remarkable } from 'remarkable'
 import { linkify } from 'remarkable/linkify'
@@ -16,16 +17,24 @@ const Article = () => {
 
   const [content, setContent] = useState('')
   const [metadata, setMetadata] = useState({})
+  const [loaded, setLoaded] = useState(false)
   const [tableOfContents, setToc] = useState([])
 
   useEffect(() => {
     async function fetchData () {
-      const prefix = 'https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/master/markdown/'
-      const result = await fetch(`${prefix}${article}.md`)
-      return await result.text()
+      const host = 'https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/master'
+
+      try {
+        const result = await axios.get(`${host}/markdown/${article}.md`)
+        return result.data
+      } catch (e) {
+        window.location.assign('/404')
+      }
     }
 
     fetchData().then(text => {
+      setLoaded(true)
+
       const md = new Remarkable('full', {
         html: true,
         xhtmlOut: true,
@@ -61,10 +70,16 @@ const Article = () => {
       <Helmet onChangeClientState={({ title }) => PubSub.publish('title-changed', title)}>
         <title>{metadata.title}</title>
       </Helmet>
-      <div
-        className={`markdown-body ${styles.Content}`}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      {
+        loaded
+          ? (
+            <div
+              className={`markdown-body ${styles.Content}`}
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          )
+          : <div className={styles.Loading}>Loading...</div>
+      }
       <div className={styles.TOC}>
         <ul>
           {
