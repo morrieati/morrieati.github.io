@@ -22,10 +22,10 @@ const Article = () => {
 
   useEffect(() => {
     async function fetchData () {
-      const host = 'https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/master'
+      const host = 'https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/src/src/articles/'
 
       try {
-        const result = await axios.get(`${host}/markdown/${article}.md`)
+        const result = await axios.get(`${host}${article}.md`)
         return result.data
       } catch (e) {
         window.location.assign('/404')
