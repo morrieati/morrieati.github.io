@@ -1,0 +1,56 @@
+@import "src/common";
+
+.Article {
+  position: relative;
+  height: 100%;
+  margin: 20px 152px;
+
+  .Content {
+    position: relative;
+    width: 80%;
+    min-height: 100%;
+    padding: 20px;
+    border: $border;
+    margin-bottom: -1px;
+  }
+
+  .TOC {
+    position: fixed;
+    top: 20px;
+    left: calc(80vw - 80px);
+    border-left: $border;
+
+    ul {
+      list-style-type: none;
+      padding-left: 16px;
+
+      li {
+        line-height: 28px;
+      }
+
+      .Level_1 {
+        margin-left: calc(#{$level-indent} * 0);
+      }
+
+      .Level_2 {
+        margin-left: calc(#{$level-indent} * 1);
+      }
+
+      .Level_3 {
+        margin-left: calc(#{$level-indent} * 2);
+      }
+
+      .Level_4 {
+        margin-left: calc(#{$level-indent} * 3);
+      }
+
+      .Level_5 {
+        margin-left: calc(#{$level-indent} * 4);
+      }
+
+      .Level_6 {
+        margin-left: calc(#{$level-indent} * 5);
+      }
+    }
+  }
+}
