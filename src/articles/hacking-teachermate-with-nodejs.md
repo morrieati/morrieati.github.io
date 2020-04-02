@@ -17,7 +17,7 @@ author: Morris Liu
 
 
 
-![demo](hacking-teachermate-with-nodejs/demo.png)
+![demo](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/demo.png)
 
 
 
@@ -31,7 +31,7 @@ author: Morris Liu
 
 嗯。。为什么要把这个链接搞出来呢？因为我们要在电脑上的 Chrome 里模拟签到。为什么要在电脑上呢？因为 Chrome 可以看我们签到过程中发送的各种 request 和收到的各种 response 啊，这样我们就知道发什么样的请求可以假装自己是在手机上签到啦！
 
-![share_link](hacking-teachermate-with-nodejs/share_link.png)
+![share_link](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/share_link.png)
 
 点签到之后在页面加载完成之前点一下右上角的三个点，再点一下那个 Copy URL 把这个页面的 URL 复制下来备用。
 
@@ -39,17 +39,17 @@ author: Morris Liu
 
 刚刚拿到的链接在 Chrome 中打开会发现这个页面只能用微信内置的浏览器访问
 
-![access_deny](hacking-teachermate-with-nodejs/access_deny.png)
+![access_deny](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/access_deny.png)
 
 这时候，强大的 Chrome 就要出场了👏
 
 打开 Chrome 的开发者工具
 
-![developer_tool](hacking-teachermate-with-nodejs/developer_tool.png)
+![developer_tool](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/developer_tool.png)
 
 点一下 Settings，在 Devices 里面点 Add custom device
 
-![emulate_wechat](hacking-teachermate-with-nodejs/emulate_wechat.png)
+![emulate_wechat](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/emulate_wechat.png)
 
 按照上图配置好之后保存就好了。
 
@@ -63,13 +63,13 @@ author: Morris Liu
 
 还是在刚才的开发者工具中，点一下开发者工具左上角的 Toggle Device Toolbar ，选择页面上方出现的工具栏中刚刚配置好的 MicroMessenger 这个 Device，如下图所示
 
-![sign_in_page](hacking-teachermate-with-nodejs/sign_in_page.png)
+![sign_in_page](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/sign_in_page.png)
 
 ## 分析页面请求
 
 事实上，如果老师开了签到之后，我们打开这个页面就可以签上到了。经过分析发现，这个页面签到是通过一个 POST 请求完成的
 
-![post_request](hacking-teachermate-with-nodejs/post_request.png)
+![post_request](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/post_request.png)
 
 经过我的几次尝试，发现请求中只有下面这几项是必须的
 
