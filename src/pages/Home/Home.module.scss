@@ -1,0 +1,43 @@
+@import "src/common";
+
+.Home {
+  position: relative;
+  height: 100%;
+
+  .List {
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 100px;
+
+    .Article {
+      border-bottom: $divider;
+      padding-bottom: 20px;
+      cursor: pointer;
+      transition: all 200ms;
+
+      &:hover {
+        padding: 10px 20px 20px;
+        background: #fafafa;
+        border-bottom: 0 none;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      @include clear-float;
+
+      .Author {
+        float: left;
+      }
+
+      .Date {
+        float: right;
+      }
+    }
+  }
+
+  .Loading {
+    @include position-center;
+
+    font-size: 32px;
+  }
+}

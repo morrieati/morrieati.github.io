@@ -15,22 +15,3 @@ Curabitur feugiat justo quam, id finibus risus tempor non. Nam elementum ultrici
 Donec consequat, justo fermentum varius fermentum, elit neque lobortis ligula, vel elementum nunc massa sed eros. Morbi pellentesque posuere dolor, at dignissim tellus interdum at. Fusce et ante felis. Suspendisse quis mauris enim. In hac habitasse platea dictumst. Pellentesque laoreet mi egestas, molestie purus eget, rhoncus dui. Vestibulum pulvinar scelerisque ligula, vitae hendrerit nunc.
 
 Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce in magna ultricies, condimentum dui in, mattis nunc. Vestibulum vel elementum ligula, nec vehicula sapien. Praesent facilisis, sem eget finibus pellentesque, est turpis facilisis leo, a pellentesque justo est non lacus. Donec semper eros imperdiet justo aliquam scelerisque. Vestibulum ac feugiat orci. Ut dolor arcu, pulvinar sed finibus et, condimentum ultricies quam. Donec a turpis et libero pharetra fringilla. Nulla tempor fringilla arcu id vestibulum. In hac habitasse platea dictumst. Donec congue, nunc et commodo luctus, nisl justo placerat ipsum, eget dapibus ipsum tortor quis ligula. Donec interdum tortor tellus, ut gravida ligula congue non. Proin eu vestibulum tortor. Donec sit amet velit sit amet diam ultricies iaculis. Mauris orci urna, luctus eget ex et, ornare imperdiet libero.
-
-## Code Test
-```javascript
-import { Remarkable } from 'remarkable';
-
-var md = new Remarkable();
-
-md.set({
-  html: true,
-  breaks: true
-});
-```
-```js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
-```

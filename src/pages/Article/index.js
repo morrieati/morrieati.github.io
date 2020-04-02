@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import PubSub from 'pubsub-js'
 import qs from 'query-string'
-import axios from 'axios'
 
 import config from 'config'
 import { renderMarkdown } from 'utils/markdown'
@@ -20,8 +19,8 @@ const Article = () => {
   useEffect(() => {
     async function fetchData () {
       try {
-        const result = await axios.get(`${config.article_dir}${article}.md`)
-        return result.data
+        const result = await fetch(`${config.article_dir}${article}.md`)
+        return await result.text()
       } catch (e) {
         window.location.assign('/404')
       }

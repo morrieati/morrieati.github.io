@@ -1,13 +1,54 @@
-import React from 'react'
-import PubSub from 'pubsub-js'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
+import PubSub from 'pubsub-js'
+import dateFormat from 'dateformat'
+
+import config from 'config'
+import styles from './Home.module.scss'
 
 const Home = () => {
+  const [loaded, setLoaded] = useState(false)
+  const [articles, setArticles] = useState([])
+
+  useEffect(() => {
+    async function fetchData () {
+      try {
+        const result = await fetch(`${config.article_dir}articles.json`)
+        return await result.json()
+      } catch (e) {
+        window.location.assign('/404')
+      }
+    }
+
+    fetchData().then(result => {
+      setLoaded(true)
+      setArticles(result.sort((a, b) => a.date - b.date))
+    })
+  }, [])
+
   return (
-    <div>
+    <div className={styles.Home}>
       <Helmet onChangeClientState={({ title }) => PubSub.publish('title-changed', title)}>
         <title>这是首页</title>
       </Helmet>
+
+      {
+        loaded
+          ? (
+            <div className={styles.List}>
+              {
+                articles.map(({ title, author, date }, index) => (
+                  <div key={index} className={styles.Article}>
+                    <h2>{title}</h2>
+                    <span className={styles.Author}>written by <b>{author}</b></span>
+                    <span className={styles.Date}>{dateFormat(date)}</span>
+                  </div>
+                ))
+              }
+            </div>
+          )
+          : <div className={styles.Loading}>Loading...</div>
+      }
     </div>
   )
 }
