@@ -23,6 +23,10 @@
       @include scroll-bar;
     }
 
+    img {
+      margin: 0 auto;
+    }
+
     &:after {
       content: '-- THE END --';
       display: block;
