@@ -22,6 +22,15 @@
     pre {
       @include scroll-bar;
     }
+
+    &:after {
+      content: '-- THE END --';
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 50px;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    }
   }
 
   .TOC {

@@ -48,7 +48,7 @@ const Home = () => {
                   </Link>
                 ))
               }
-              <code className={styles.End}> -- THE END -- </code>
+              <code className={styles.End}>-- THE END --</code>
             </div>
           )
           : <div className={styles.Loading}>Loading...</div>
