@@ -5,7 +5,7 @@ author: Morris Liu
 
 ---
 
-
+# Fedora系统更新之后无法进入图形界面的可能的解决方法
 
 今天下午跑了一下 `dnf update` 之后，我的 Fedora 就崩了。依稀记得是更新了几个 x 的包，然后就进不去桌面环境了。
 
@@ -13,7 +13,7 @@ author: Morris Liu
 
 <!-- more -->
 
-# 卸载 nVidia 驱动
+## 卸载 nVidia 驱动
 
 重启之后是进不去图形界面的，这时候按 `Ctrl+Alt+F2` 进入终端，执行
 
@@ -23,7 +23,7 @@ author: Morris Liu
 
 把驱动删掉。
 
-# 重装 nVidia 驱动
+## 重装 nVidia 驱动
 
 [参考网址](https://www.if-not-true-then-false.com/2015/fedora-nvidia-guide/)
 

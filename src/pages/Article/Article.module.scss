@@ -18,6 +18,10 @@
     padding: 20px;
     border: $border;
     margin-bottom: -1px;
+
+    pre {
+      @include scroll-bar;
+    }
   }
 
   .TOC {

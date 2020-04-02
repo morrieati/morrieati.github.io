@@ -5,13 +5,15 @@ author: Morris Liu
 
 ---
 
+# 用Node.js实现微助教自动签到
+
 这学期组原课用微助教这个东西签到诶，然后昨天看到耶鲁大神 hack 了自动签到 [链接在这里](https://tao-h.github.io/2016/12/13/teacher-mater/) 然后我就想着也弄个每次签到就可以抢第一啦☝️😄
 
 然后看了下他写的基本就是从 Chrome 开发者工具里把 cURL 脚本复制下来然后从 python 里面循环了，既然我用 node 写肯定不会这样啦，直接用 node 的 request 就好了（虽然直接复制过来挺方便的，不过在 request 里面写看的比较清楚）
 
 <!-- more -->
 
-# 那我们先看一下最终结果是什么样子！
+## 那我们先看一下最终结果是什么样子！
 
 
 
@@ -19,11 +21,11 @@ author: Morris Liu
 
 
 
-# 准备工作
+## 准备工作
 
 手机一部，电脑一台（一定要装了 Chrome 哟）
 
-## 获取签到网页的 URL
+### 获取签到网页的 URL
 
 众所周知。微信公众号里点开的链接都是网页啦，只不过微信浏览器把地址栏隐藏掉了而已，然后我们试着把这个链接搞出来。
 
@@ -33,7 +35,7 @@ author: Morris Liu
 
 点签到之后在页面加载完成之前点一下右上角的三个点，再点一下那个 Copy URL 把这个页面的 URL 复制下来备用。
 
-## 配置 Chrome 开发者模式模拟微信登陆
+### 配置 Chrome 开发者模式模拟微信登陆
 
 刚刚拿到的链接在 Chrome 中打开会发现这个页面只能用微信内置的浏览器访问
 
@@ -55,7 +57,7 @@ author: Morris Liu
 
 `Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 MicroMessenger/6.2.3 NetType/WIFI Language/zh_CN`
 
-# 在 Chrome 中模拟微信签到
+## 在 Chrome 中模拟微信签到
 
 经过刚才的准备工作，我们已经可以在 Chrome 中访问签到的页面了✌️
 
@@ -63,7 +65,7 @@ author: Morris Liu
 
 ![sign_in_page](hacking-teachermate-with-nodejs/sign_in_page.png)
 
-# 分析页面请求
+## 分析页面请求
 
 事实上，如果老师开了签到之后，我们打开这个页面就可以签上到了。经过分析发现，这个页面签到是通过一个 POST 请求完成的
 
@@ -89,7 +91,7 @@ form: {
 
 其中 User-Agent 刚刚已经说过了，openid 是微信用户的标识符，course_id 是课堂的标识符，比如为了测试我开了一个课堂，course_id 就是 7046 。需要注意的是，这个 course_id 并不是加入课堂时填写的那个课堂的编号，要从我们之前获取的 URL 中提取。lon 和 lat 是用来确定用户地理位置的，当课堂签到没有开启地理位置检测的时候，这两个参数为 0 
 
-# 使用 Node.js 实现签到
+## 使用 Node.js 实现签到
 
 我们使用 Node.js 中的 request 模块来实现上述 POST 请求，首先使用 `npm install request --save` 安装此模块。
 
@@ -137,7 +139,7 @@ checkin();
 
 输入 `node teachermate.js` 测试，已经可以成功自动签到了
 
-# 将 teachermate.js 作为终端程序使用
+## 将 teachermate.js 作为终端程序使用
 
 在代码的开头增加一行
 

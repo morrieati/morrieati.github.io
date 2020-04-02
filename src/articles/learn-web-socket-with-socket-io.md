@@ -5,7 +5,9 @@ author: Morris Liu
 
 ---
 
-# WebSocket
+# Node.js WebSocket学习：基于Socket.io
+
+## WebSocket
 
 简单来说，WebSocket 是从 HTML5 开始确定下来的支持浏览器到服务器长连接到一种技术。以前人们想做这种需要长连接到应用，比如基于 Web 页面的聊天啊之类，的时候，一般会用轮询技术或者 Flash。
 
@@ -15,7 +17,7 @@ author: Morris Liu
 
 <!-- more -->
 
-## WebSocket请求
+### WebSocket请求
 
 首先，我们先看下它的 request 是什么样子的好了，下面这段据说是从 Wikipeida 上找的
 
@@ -48,7 +50,7 @@ Sec-WebSocket-Protocol: chat, superchat
 Sec-WebSocket-Version: 13
 ```
 
-## WebSocket响应
+### WebSocket响应
 
 接收到浏览器的请求之后，服务器就会返回一个响应，就是下面类似的这种东西
 
@@ -66,13 +68,13 @@ Sec-WebSocket-Protocol: chat
 
 完成了上面的请求和响应之后，握手过程也就成功啦，WebSocket 连接就算成功建立起来了。下面就开始 Socket.io 啦。
 
-# Socket.io
+## Socket.io
 
 Socket.io 把 WebSocket 这套协议很好的封装起来，所以我们就不用自己去一步一步实现这么一个协议啦，果然开源社区就是厉害😄。
 
 说到 Web 长链接的应用，最典型的就是聊天应用啦。所以我们今天这个例子就是一个聊天应用。
 
-## 搭建基本框架
+### 搭建基本框架
 
 我们的聊天应用是基于 Node.js 的，然后为了比较方便些，就直接用 `express-generator` 把主框架搭起来啦
 
@@ -93,7 +95,7 @@ $ npm install socket.io --save
 
 主要的框架就是这么多，下面我们来弄界面了。
 
-## 聊天窗口界面
+### 聊天窗口界面
 
 聊天窗口界面我就直接拿 Socket.io 官网的 Demo 啦😄，自己写好麻烦，要写漂亮些还要用 Bootstrap ，基于一切从简的原则所以就直接拿了官网 Demo。
 
@@ -200,11 +202,11 @@ socket.on('chat message', function(msg){ ... });
 
 这样，我们的聊天界面就可以把聊天内容发送到服务器，并且从服务器接收消息啦！
 
-## 服务器端 Socket.io
+### 服务器端 Socket.io
 
 事实上，Socket.io 是分为一个服务器上处理 WebSocket 请求的一个 Server 和一个在浏览器的 `socket.io-client` ，这个 Client 刚过我们已经用过了，也就是 `socket.emit()` 那个函数。现在我们来看服务器端的 `socket.io` 。
 
-### 添加 Socket.io 中间件
+#### 添加 Socket.io 中间件
 
 首先的首先，在写服务器端的其他功能之前，我们要把 Socket.io 的中间件加到我们的应用里面，要不然我们写了这么多函数都没法用啊
 
@@ -212,7 +214,7 @@ socket.on('chat message', function(msg){ ... });
 var io = require('socket.io')(http);
 ```
 
-### 用户连接
+#### 用户连接
 
 然后，当用户以 WebSocket 协议连接到服务器上的时候，我们应该有个提醒说，啊，有个用户登录了！嗯。。然后具体一点就是这样写
 
@@ -235,7 +237,7 @@ io.on('connection', function(socket){
 });
 ```
 
-### 发送聊天消息
+#### 发送聊天消息
 
 最后，聊天应用最重要的事情就是把大家发的消息都显示在聊天窗口上，所以，我们下面要写服务器把消息发送到浏览器的功能。所以，经过扩展后我们的函数看起来就是这个样子了
 

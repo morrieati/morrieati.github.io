@@ -5,6 +5,8 @@ author: Morris Liu
 
 ---
 
+# JSON Web Token in Node.js
+
 这段时间一直在弄 [Node.js](https://nodejs.org/en/) 的身份验证之类的，不知道为啥 session 的总是不成功诶，每次连接的 session 都不一样，然后 [Passport](http://passportjs.org/) 之类的也没怎么看，不过据说是很好用的，以后有空再看看。然后的然后因为老板说以后可能会出 Native 的 App 之类的，所以最终就选择了 [JWT](https://jwt.io/) 来做身份验证啦～
 
 <!-- more -->
