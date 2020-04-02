@@ -4,11 +4,8 @@ import PubSub from 'pubsub-js'
 import qs from 'query-string'
 import axios from 'axios'
 
-import { Remarkable } from 'remarkable'
-import { linkify } from 'remarkable/linkify'
-import meta from 'remarkable-meta'
-import hljs from 'highlight.js'
-import toc from 'markdown-toc'
+import config from 'config'
+import { renderMarkdown } from 'utils/markdown'
 
 import styles from './Article.module.scss'
 
@@ -16,16 +13,14 @@ const Article = () => {
   const { article } = qs.parse(window.location.search)
 
   const [content, setContent] = useState('')
-  const [metadata, setMetadata] = useState({})
+  const [metadata, setMeta] = useState({})
   const [loaded, setLoaded] = useState(false)
-  const [tableOfContents, setToc] = useState([])
+  const [toc, setToc] = useState([])
 
   useEffect(() => {
     async function fetchData () {
-      const host = 'https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/src/src/articles/'
-
       try {
-        const result = await axios.get(`${host}${article}.md`)
+        const result = await axios.get(`${config.article_dir}${article}.md`)
         return result.data
       } catch (e) {
         window.location.assign('/404')
@@ -35,33 +30,11 @@ const Article = () => {
     fetchData().then(text => {
       setLoaded(true)
 
-      const md = new Remarkable('full', {
-        html: true,
-        xhtmlOut: true,
-        breaks: true,
-        typographer: true,
-        highlight: function (str, lang) {
-          if (lang && hljs.getLanguage(lang)) {
-            try {
-              return hljs.highlight(lang, str).value
-            } catch (err) {}
-          }
+      const { content, meta, toc } = renderMarkdown(text)
 
-          try {
-            return hljs.highlightAuto(str).value
-          } catch (err) {}
-
-          return '' // use external default escaping
-        },
-      }).use(linkify).use(meta).use((remarkable) => {
-        remarkable.renderer.rules.heading_open = (tokens, idx) => (
-          `<h${tokens[idx].hLevel} id=${toc.slugify(tokens[idx + 1].content)}>`
-        )
-      })
-
-      setContent(md.render(text))
-      setMetadata(md.meta)
-      setToc(toc(text, {}).json)
+      setToc(toc)
+      setMeta(meta)
+      setContent(content)
     })
   }, [article])
 
@@ -83,7 +56,7 @@ const Article = () => {
       <div className={styles.TOC}>
         <ul>
           {
-            tableOfContents.map(item => (
+            toc.map(item => (
               <li key={item.i} className={styles[`Level_${item.lvl}`]}>
                 <a href={`#${item.slug}`}>{item.content}</a>
               </li>
