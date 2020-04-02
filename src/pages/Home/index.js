@@ -23,7 +23,7 @@ const Home = () => {
 
     fetchData().then(result => {
       setLoaded(true)
-      setArticles(result.sort((a, b) => b.date - a.date))
+      setArticles(result.sort((a, b) => new Date(b.date) - new Date(a.date)))
     })
   }, [])
 
@@ -38,9 +38,9 @@ const Home = () => {
           ? (
             <div className={styles.List}>
               {
-                articles.map(({ key, title, author, date }, index) => (
-                  <Link to={`/page?article=${key}`}>
-                    <div key={index} className={styles.Article}>
+                articles.map(({ key, title, author, date }) => (
+                  <Link key={key} to={`/page?article=${key}`}>
+                    <div className={styles.Article}>
                       <h2>{title}</h2>
                       <span className={styles.Author}>written by <b>{author}</b></span>
                       <span className={styles.Date}>{dateFormat(date, 'dddd, mmmm dS, yyyy')}</span>
