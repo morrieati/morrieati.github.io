@@ -37,8 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run genarticles",
-      "pre-push": "npm run deploy"
+      "pre-commit": "npm run genarticles"
     }
   },
   "eslintConfig": {
