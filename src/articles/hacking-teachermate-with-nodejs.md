@@ -17,7 +17,7 @@ author: Morris Liu
 
 
 
-![demo](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/demo.png)
+<img src="https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/demo.png" alt="demo" style="zoom: 25%;" />
 
 
 
@@ -31,7 +31,7 @@ author: Morris Liu
 
 嗯。。为什么要把这个链接搞出来呢？因为我们要在电脑上的 Chrome 里模拟签到。为什么要在电脑上呢？因为 Chrome 可以看我们签到过程中发送的各种 request 和收到的各种 response 啊，这样我们就知道发什么样的请求可以假装自己是在手机上签到啦！
 
-![share_link](https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/share_link.png)
+<img src="https://raw.githubusercontent.com/realMorrisLiu/realMorrisLiu.github.io/images/share_link.png" alt="share_link" style="zoom:25%;" />
 
 点签到之后在页面加载完成之前点一下右上角的三个点，再点一下那个 Copy URL 把这个页面的 URL 复制下来备用。
 
