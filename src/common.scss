@@ -27,6 +27,7 @@ $level-indent: 16px;
 @mixin scroll-bar {
   &::-webkit-scrollbar {
     width: 2px;
+    height: 2px;
   }
 
   &::-webkit-scrollbar-thumb {
