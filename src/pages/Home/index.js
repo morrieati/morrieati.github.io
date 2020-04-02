@@ -23,7 +23,7 @@ const Home = () => {
 
     fetchData().then(result => {
       setLoaded(true)
-      setArticles(result.sort((a, b) => a.date - b.date))
+      setArticles(result.sort((a, b) => b.date - a.date))
     })
   }, [])
 
