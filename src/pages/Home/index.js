@@ -5,6 +5,7 @@ import dateFormat from 'dateformat'
 
 import config from 'config'
 import styles from './Home.module.scss'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [loaded, setLoaded] = useState(false)
@@ -37,12 +38,14 @@ const Home = () => {
           ? (
             <div className={styles.List}>
               {
-                articles.map(({ title, author, date }, index) => (
-                  <div key={index} className={styles.Article}>
-                    <h2>{title}</h2>
-                    <span className={styles.Author}>written by <b>{author}</b></span>
-                    <span className={styles.Date}>{dateFormat(date)}</span>
-                  </div>
+                articles.map(({ key, title, author, date }, index) => (
+                  <Link to={`/page?=${key}`}>
+                    <div key={index} className={styles.Article}>
+                      <h2>{title}</h2>
+                      <span className={styles.Author}>written by <b>{author}</b></span>
+                      <span className={styles.Date}>{dateFormat(date, 'dddd, mmmm dS, yyyy')}</span>
+                    </div>
+                  </Link>
                 ))
               }
             </div>
