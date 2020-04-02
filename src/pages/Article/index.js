@@ -15,25 +15,27 @@ const Article = () => {
   const [metadata, setMeta] = useState({})
   const [loaded, setLoaded] = useState(false)
   const [toc, setToc] = useState([])
+  const [title, setTitle] = useState({})
 
   useEffect(() => {
     async function fetchData () {
-      try {
-        const result = await fetch(`${config.article_dir}${article}.md`)
-        return await result.text()
-      } catch (e) {
-        window.location.assign('/404')
-      }
+      const result = await fetch(`${config.article_dir}${article}.md`)
+      return await result.text()
     }
 
     fetchData().then(text => {
       setLoaded(true)
 
       const { content, meta, toc } = renderMarkdown(text)
+      const title = toc.shift()
 
       setToc(toc)
       setMeta(meta)
+      setTitle(title)
       setContent(content)
+    }).catch(e => {
+      console.error(e)
+      window.location.assign('/404')
     })
   }, [article])
 
@@ -54,6 +56,9 @@ const Article = () => {
       }
       <div className={styles.TOC}>
         <ul>
+          <li className={styles.Title}>
+            <a href={`#${title.slug}`}>{title.content}</a>
+          </li>
           {
             toc.map(item => (
               <li key={item.i} className={styles[`Level_${item.lvl}`]}>

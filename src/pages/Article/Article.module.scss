@@ -38,28 +38,35 @@
         line-height: 28px;
       }
 
+      .Title {
+        margin-left: calc(#{$level-indent} * 0);
+        font-size: 16px;
+        font-weight: bold;
+      }
+
       .Level_1 {
         margin-left: calc(#{$level-indent} * 0);
+        font-size: 16px;
       }
 
       .Level_2 {
-        margin-left: calc(#{$level-indent} * 1);
+        margin-left: calc(#{$level-indent} * 0);
       }
 
       .Level_3 {
-        margin-left: calc(#{$level-indent} * 2);
+        margin-left: calc(#{$level-indent} * 1);
       }
 
       .Level_4 {
-        margin-left: calc(#{$level-indent} * 3);
+        margin-left: calc(#{$level-indent} * 2);
       }
 
       .Level_5 {
-        margin-left: calc(#{$level-indent} * 4);
+        margin-left: calc(#{$level-indent} * 3);
       }
 
       .Level_6 {
-        margin-left: calc(#{$level-indent} * 5);
+        margin-left: calc(#{$level-indent} * 4);
       }
     }
   }
