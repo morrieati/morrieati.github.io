@@ -7,7 +7,7 @@ author: Morris Liu
 
 # 用Node.js实现微助教自动签到
 
-这学期组原课用微助教这个东西签到诶，然后昨天看到耶鲁大神 hack 了自动签到 [链接在这里](https://tao-h.github.io/2016/12/13/teacher-mater/) 然后我就想着也弄个每次签到就可以抢第一啦☝️😄
+这学期组原课用微助教这个东西签到诶，然后昨天看到耶鲁大神 hack 了自动签到 [链接在这里](https://huangtao101.github.io/2016/12/13/teacher-mater/) 然后我就想着也弄个每次签到就可以抢第一啦☝️😄
 
 然后看了下他写的基本就是从 Chrome 开发者工具里把 cURL 脚本复制下来然后从 python 里面循环了，既然我用 node 写肯定不会这样啦，直接用 node 的 request 就好了（虽然直接复制过来挺方便的，不过在 request 里面写看的比较清楚）
 
