@@ -5,6 +5,15 @@ $font-color: #333;
 $secondary-font-color: #666;
 $focus-font-color: #000;
 
+@media (prefers-color-scheme: dark) {
+  $border: 1px solid #181818;
+  $divider: 1px solid #181818;
+
+  $font-color: #aaa;
+  $secondary-font-color: #ccc;
+  $focus-font-color: #fff;
+}
+
 $level-indent: 16px;
 
 /* clear-float */

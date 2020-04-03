@@ -1,11 +1,24 @@
 * {
   box-sizing: border-box;
-  color: #333333;
   text-decoration: none;
+
+  color: black;
+  background: white;
 }
 
 a:hover {
-  color: #000000;
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    color: white;
+    background: black;
+  }
+
+  a:hover {
+    color: white;
+  }
 }
 
 body {
