@@ -18,6 +18,12 @@
       margin: 0 auto;
     }
 
+    pre {
+      span {
+        background: transparent;
+      }
+    }
+
     &:after {
       content: '-- THE END --';
       display: block;
