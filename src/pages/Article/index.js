@@ -4,6 +4,7 @@ import PubSub from 'pubsub-js'
 import qs from 'query-string'
 
 import config from 'config'
+import Loading from 'components/Loading'
 import { renderMarkdown } from 'utils/markdown'
 
 import styles from './Article.module.scss'
@@ -52,7 +53,7 @@ const Article = () => {
               dangerouslySetInnerHTML={{ __html: content }}
             />
           )
-          : <div className={styles.Loading}>Loading...</div>
+          : <Loading />
       }
       <div className={styles.TOC}>
         <ul>

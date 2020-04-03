@@ -5,12 +5,6 @@
   height: 100%;
   margin: 20px 152px;
 
-  .Loading {
-    @include position-center;
-
-    font-size: 32px;
-  }
-
   .Content {
     position: relative;
     width: 80%;
@@ -18,10 +12,6 @@
     padding: 20px;
     border: $border;
     margin-bottom: -1px;
-
-    pre {
-      @include scroll-bar;
-    }
 
     img {
       display: block;
@@ -34,6 +24,7 @@
       text-align: center;
       font-size: 12px;
       margin-top: 50px;
+      margin-bottom: 30px;
       font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     }
   }
@@ -82,6 +73,64 @@
       .Level_6 {
         margin-left: calc(#{$level-indent} * 4);
       }
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .Article {
+    .Content {
+      pre {
+        @include scroll-bar;
+      }
+    }
+  }
+}
+
+/*
+  ##Device = Tablets, iPads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Article {
+    margin: 0;
+
+    .Content {
+      width: 100%;
+      padding: 20px;
+      border: 0 none;
+    }
+
+    .TOC {
+      display: none;
+    }
+  }
+}
+
+/*
+  ##Device = Most of the SmartPhones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 767px) {
+  .Article {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding-top: 44px;
+
+    .Content {
+      width: 100%;
+      padding: 15px;
+      border: 0 none;
+
+      &:after {
+        margin-top: 50px;
+        margin-bottom: 40px;
+      }
+    }
+
+    .TOC {
+      display: none;
     }
   }
 }

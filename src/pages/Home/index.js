@@ -5,6 +5,8 @@ import PubSub from 'pubsub-js'
 import dateFormat from 'dateformat'
 
 import config from 'config'
+import Loading from 'components/Loading'
+
 import styles from './Home.module.scss'
 
 const Home = () => {
@@ -51,7 +53,7 @@ const Home = () => {
               <code className={styles.End}>-- THE END --</code>
             </div>
           )
-          : <div className={styles.Loading}>Loading...</div>
+          : <Loading />
       }
     </div>
   )

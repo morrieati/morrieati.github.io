@@ -32,15 +32,15 @@ const App = () => {
         </Route>
       </Switch>
 
-      <footer className={styles.Footer}>
-        <Link className={styles.SiteName} to={'/'}>护肝工程师的日常</Link>
+      <nav className={styles.Nav}>
+        <Link className={styles.SiteName} to={'/'}><span>护肝工程师的日常</span></Link>
         <span className={styles.ArticleTitle}>{title}</span>
         <span className={styles.Links}>
           <Link className={styles.Link} to={'/'}>Home</Link>
           <Link className={styles.Link} to={'/me'}>Me</Link>
           <a className={styles.Link} href={'https://github.com/realMorrisLiu'}>GitHub</a>
         </span>
-      </footer>
+      </nav>
     </div>
   )
 }
