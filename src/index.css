@@ -21,6 +21,10 @@ a:hover {
   a:hover {
     color: white;
   }
+
+  pre {
+    color: black;
+  }
 }
 
 body {
