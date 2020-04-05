@@ -39,6 +39,7 @@
     position: fixed;
     top: 20px;
     left: calc(80vw - 80px);
+    max-width: 300px;
     border-left: $border;
 
     ul {

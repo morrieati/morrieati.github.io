@@ -66,14 +66,18 @@
     height: 100%;
 
     .Nav {
+      display: block;
       bottom: unset;
       top: 0;
-      padding: 0;
+      padding: 11px 0;
 
       border-top: 0 none;
       border-bottom: $border;
 
+      @include clear-float;
+
       .SiteName {
+        float: left;
         width: 44px;
         padding: 0;
         text-align: center;
@@ -88,6 +92,8 @@
       }
 
       .ArticleTitle {
+        float: left;
+        width: calc(100% - 44px);
         font-weight: normal;
         overflow: hidden;
         white-space: nowrap;
