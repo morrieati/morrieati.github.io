@@ -7,6 +7,7 @@ import config from 'config'
 import Loading from 'components/Loading'
 import { renderMarkdown } from 'utils/markdown'
 
+import 'styles/dracula.scss'
 import styles from './Article.module.scss'
 
 const Article = () => {
