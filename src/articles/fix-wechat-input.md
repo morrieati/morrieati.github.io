@@ -1,7 +1,8 @@
 ---
 title: Arch Linux 修复 Wine 下的微信输入框看不到文字
 author: Morris Liu
-date: 2020-04-01
+date: 2020-04-15
+
 ---
 
 # Arch Linux 修复 Wine 下的微信输入框看不到文字
